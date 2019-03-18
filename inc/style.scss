@@ -1,20 +1,21 @@
+$grid: true; 
 @import 'utilities/mixins';
 @import 'utilities/bootstrap';
 @import 'utilities/ease';
 
 // variables
 $color1: #ffffff;
-$color2: #fafafb;
-$color3: #f5f5f5;
-$color4: #f2f2f2;
-$color5: #46494C;
+$color2: #fcfcfc;
+$color3: #f7f7f7;
+$color4: #dcdcdc;
+$color5: #343a40; 
 $color6: #ff6666;
 $color7: #ff9142;
 $color8: #e9e9e9;
 
 html, body{
     @include font-size(16px);
-    @include serif-font();
+    @include serif-font(); 
     @extend %w-100, %h-100;
     margin: 0;
     padding: 0;
@@ -24,7 +25,7 @@ html, body{
 }
 
 body{
-    @include gradient($color2, 1, $color3, 1, top, bottom, 100%);
+  background-color: $color1;
 }
 
 *, *:after, *:before { @include box-sizing(border-box); }
@@ -47,68 +48,74 @@ body{
 .color7{ color: $color7; }
 .color8{ color: $color8; }
 
+#main-header{ 
+}
+
+#main-footer{
+  background-color: rgba(255, 255, 255, .97);
+}
+
 #checkedList > div:nth-child(even), 
 #unchekedList > div:nth-child(even),
-#tagsList > div:nth-child(even){
+#tagsUList > div:nth-child(even),
+#tagsCList > div:nth-child(even){
   background-color: $color2;
 }
 #checkedList > div:nth-child(odd), 
 #unchekedList > div:nth-child(odd),
-#tagsList > div:nth-child(odd){
+#tagsUList > div:nth-child(odd),
+#tagsCList > div:nth-child(odd){
   background-color: $color3;
 }
 
-.table{
-  display: table;
-  width: 100%;
-}
-
-.table-cell{
-  display: table-cell;
-  max-width: 50%;
-  min-width: 50%;
-  width: 50%;
+.row-bar{
+  @include border-radius(1.5rem);
 }
 
 #addItem,
-#reloadBtn,
 .checked,
 .unchecked,
 .btn{
-  vertical-align: middle;
-  width: 1.3rem;
-  height: 1.3rem;
+  img{
+    width: 1.5rem;
+    height: 1.5rem;
+    vertical-align: middle;
+  }
   cursor: pointer;
 }
 
 .footBtn{
   @include opacity(0.5);
   @include transition(opacity 300ms);
-  width: 2rem;
   cursor: pointer;
   &:hover{
     @include opacity(1);
   }
+  img{ 
+    margin: 1rem 0;
+    width: 1.5rem; 
+  }
 }
 
-.checked, .unchecked{
-  display: inline-block;
-  background-size: cover;
+.inputEditName{  
+  margin: 0;
+  height: 100%;
 }
-.checked{ background-image: url('../images/checked.svg'); }
-.unchecked{ background-image: url('../images/unchecked.svg'); }
-
+ 
 input[type="text"] {
-  @include border-radius(7px);
+  @include border-radius(1rem);
+  outline: none;
   height: inherit;
   padding: 4px 10px;
-  border: 1px solid $color5;
+  border: 1px solid $color4;
   font-size: inherit;
 }
 
-#reloadBtn{
-  @include transition(all 600ms ease);
-  &.rotated { @include rotate(360deg); }
+#reloadBtn img{  
+  &.rotated { 
+    @include transition(all 600ms ease);
+    @include rotate(360deg); 
+  }
 }
 
 .ui-widget-content {
@@ -129,10 +136,51 @@ input[type="text"] {
 }
 
 .coin{
-  @include border-radius(5px);
-  border: 1px solid$color5;
-  padding: 5px;
+  @include border-radius(1rem);
+  margin: 0 1rem;
+  border: 2px solid $color4;
+  padding: 5px 10px;
   background: $color8;
 }
 
-.offScreen{ @include absolute(left -9999px top 0); }
+.offScreen{ @include absolute(left -9999px top -100%); }
+
+#container{
+  width: 100%;
+  overflow: hidden;
+}
+
+.right-menu{
+  @include transition(right 300ms);
+  text-align: right;
+  right: -7.5rem;
+  &.on{
+    right: 0;
+  }
+}
+
+.arrow, .tag, .editItem{
+  @include transition(transform 300ms, opacity 300ms);
+  &.on{
+    @include rotate(180deg);
+  }
+}
+
+.hideOnScroll{
+  display: none;
+}
+::-webkit-input-placeholder {
+  text-align: center;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  text-align: center;  
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  text-align: center;  
+}
+
+:-ms-input-placeholder {  
+  text-align: center; 
+}

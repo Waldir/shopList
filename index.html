@@ -7,31 +7,54 @@
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="inc/jquery-ui.min.css">
-    <link rel="stylesheet" href="inc/style.min.css?v=1.0">
+    <link rel="stylesheet" href="inc/style.min.css">
   </head>
   <body>
-  <div class="color4 bg5 p-3 table">
-    <div class="table-cell">ShopList<img src="images/reload.svg" id="reloadBtn" class="ml-2" alt="Reload"></div>
-    <div class="table-cell text-align-right"><input type="text" id="newItem" placeholder="add item"></div>
-  </div>
-  <div class="color5 bg8 p-3" id="tagHeader"></div>
-  <div id="tagsList"></div>
-  <div class="color5 bg8 p-3" id="unchekedHeader"></div>
-  <div id="checkedList"></div>
-  <div class="color5 bg8 p-3" id="checkedHeader"></div>
-  <div id="unchekedList"></div>
-  <div class="text-align-center py-4">
-    <img src="images/cookie.svg" alt="Delete Cookies" id="DelCookies" class="footBtn mx-1">
-    <img src="images/share.svg" alt="Share List" id="shareList" class="footBtn mx-1">
-    <a href="http://waldirb.com" target="_blank" title="Made by Waldir Bolanos"><img src="images/logo.svg" alt="Made by Waldir Bolanos" class="footBtn mx-1"></a>
-    <br>
-    <input type="text" id="inputShareId" class="offScreen" value="Clipboard!">
+    <div id="container">
+      <!-- fake top -->
+      <div class="p-3 row"><span class="btn"><img src="images/1x1.gif"></span></div>
+    
+      <!-- headers and lists -->
+      <div class="color5 bg8 row row-bar m-2" id="tagUncheckedHeader"></div>
+      <div id="tagsUList"></div>
+      <div class="color5 bg8 row row-bar m-2" id="tagCheckedHeader"></div>
+      <div id="tagsCList"></div>
+      <div class="color5 bg8 p-2 row-bar m-2 pl-3" id="unchekedHeader"></div>
+      <div id="checkedList"></div>
+      <div class="color5 bg8 p-2 row-bar m-2 pl-3" id="checkedHeader"></div>
+      <div id="unchekedList"></div>
 
-  </div>
+      <!-- fake bottom -->
+      <div class="py-1 footBtn"><img src="images/1x1.gif"></div>
 
+      <!-- fixed top -->
+      <div id="main-header" class="row color4 bg5 fixed-top">
+        <div class="col-6 p-3 font-small-caps  font-weight-bold">ShopList</div>
+        <div class="col-6 p-3 text-align-right">
+          <a href="http://waldirb.com" target="_blank" title="Made by Waldir Bolanos" class="btn"><img src="images/logo.svg" alt="Made by Waldir Bolanos"></a>
+        </div>
+      </div>
+      <!-- fixed bottom-->
+      <div id="main-footer" class="text-align-center bg8 fixed-bottom row">
+        <div class="col-3 footBtn delTagCookie"><img src="images/cookie.svg" alt="Delete Cookies"></div>
+        <div class="col-3 footBtn toggleOn" id="toggleNewItem" data-index="#contNewItem"><img src="images/plus-circle.svg" alt="Add New Items"></div>
+        <div class="col-3 footBtn toggleOn" id="shareList" data-index="#contShare"><img src="images/share.svg" alt="Share List"></div>
+        <div class="col-3 footBtn" id="reloadBtn"><img src="images/reload.svg" alt="Reload"></div>
+        <!-- Add item -->
+        <div class="bg3 p-2 hideOnScroll col-12" id="contNewItem">
+          <input type="text" id="newItem" class="w-100" placeholder="+ Add Item">
+        </div>
+        <!-- copy to clip-->
+        <div class="bg3 p-2 hideOnScroll col-12" id="contShare">
+            <input type="text" id="inputShareId" class="w-100">
+        </div>
+      </div>
+
+    </div><!-- end container-->
+    
     <script src="inc/jquery-3.3.1.min.js"></script>
     <script src="inc/jquery-ui.min.js"></script>
     <script src="inc/utilities/jquery.func.min.js"></script>
-    <script src="inc/script.js?v=1.0"></script>
+    <script src="inc/script.js"></script>
   </body>
 </html>
