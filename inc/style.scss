@@ -48,21 +48,19 @@ body{
 .color7{ color: $color7; }
 .color8{ color: $color8; }
 
-#main-header{ 
-}
-
 #main-footer{
   background-color: rgba(255, 255, 255, .97);
+  border-top: 1px solid $color8;
 }
 
 #checkedList > div:nth-child(even), 
-#unchekedList > div:nth-child(even),
+#uncheckedList > div:nth-child(even),
 #tagsUList > div:nth-child(even),
 #tagsCList > div:nth-child(even){
   background-color: $color2;
 }
 #checkedList > div:nth-child(odd), 
-#unchekedList > div:nth-child(odd),
+#uncheckedList > div:nth-child(odd),
 #tagsUList > div:nth-child(odd),
 #tagsCList > div:nth-child(odd){
   background-color: $color3;
